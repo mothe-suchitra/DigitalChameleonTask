@@ -1,0 +1,31 @@
+{
+    "Title":"choisissez votre langue",
+    "USER_INFO":{
+    "Email":"Courriel",
+    "Password":"Mot de passe",
+    "Confirm_Password":"Confirmez le mot de passe",
+    "Mobile_Number":"Numéro de portable",
+    "Profile_Picture":"Image de Profil",
+    "Gender":"Genre",
+    "Date_of_Birth":"Date de Naissance",
+    "Address":"Adresse",
+    "Hobbies":"Passe-temps",
+    "Annual_Income":"Revenu annuel",
+    "Terms_Conditions":"Termes et conditions",
+    "Confirm_Terms" :"J'accepte les termes et conditions",
+    "TC_Required":"Veuillez cocher cette case si vous souhaitez continuer",
+    "Email_Required" : "Adresse e-mail est nécessaire",
+    "Invalid_Email": "Adresse e-mail invalide",
+    "Confirm_Password_Required" : "Confirmer le mot de passe est requis",
+    "Confirm_Password_Match": "Le mot de passe doit être le même",
+    "DOB_Required": "La date de naissance est requise",
+    "Phone_Number_Required":"Le numéro de portable est requis",
+    "Phone_Number_Invalid":"Le numéro de portable n'est pas valide",
+    "Male":"Mâle",
+    "Female":"Femelle",
+    "Others":"Autres",
+    "Gender_Required":"Le genre est requis",
+    "Date_Placeholder": "Cliquez pour sélectionner une date",
+    "Password_Required":"Mot de passe requis"
+}
+}

@@ -1,0 +1,32 @@
+{
+    "Title":"seleccione su idioma",
+    "USER_INFO":{
+    "Email":"el correo electrónico",
+    "Password":"la contraseña",
+    "Confirm_Password":"confirma la contraseña",
+    "Mobile_Number":"número de móvil",
+    "Profile_Picture":"foto del perfil",
+    "Gender":"el género",
+    "Date_of_Birth":"la fecha de nacimiento",
+    "Address":"la dirección",
+    "Hobbies":"los pasatiempos",
+    "Annual_Income":"Ingresos anuales",
+    "Terms_Conditions":"Términos y condiciones",
+    "Confirm_Terms" :"Acepto los términos y condiciones",
+    "TC_Required":"Marque esta casilla si desea continuar",
+    "Email_Required" : "Se requiere Dirección de correo electrónico",
+    "Invalid_Email": "Dirección de correo electrónico es inválida",
+    "Confirm_Password_Required" : "Se requiere confirmación de contraseña",
+    "Confirm_Password_Match": "La contraseña debe ser la misma",
+    "DOB_Required": "Se requiere fecha de nacimiento",
+    "Phone_Number_Required":"Se requiere un número de móvil",
+    "Phone_Number_Invalid":"El número de móvil no es válido",
+    "Male":"Masculino",
+    "Female":"Mujer",
+    "Others":"Otros",
+    "Gender_Required":"El género es obligatorio",
+    "Date_Placeholder": "Haga clic para seleccionar una fecha",
+    "Password_Required":"se requiere contraseña"
+
+}
+}

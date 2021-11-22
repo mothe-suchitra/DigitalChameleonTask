@@ -1,0 +1,136 @@
+/**.form{
+    width:60%;
+    margin:15px auto;
+    background:#f1f1f1;
+    border: 1px solid #ddd;
+    padding:15px;
+    border-radius: 8px;
+}
+.form h6{
+    font-weight:600;
+    padding-top:10px;
+}
+.form input{
+    margin-bottom:10px;
+}
+**/
+.form-group{
+    margin-bottom: 15px;
+}
+#form_login{
+    margin: 5% ;   
+    width:90%;
+}
+.required {
+    color: rgb(236, 56, 56);
+    font-weight: bold;
+    padding-left: 3px;
+    font-size: 1rem;
+  }
+  .fa-icon{
+      top:-26px !important;
+      right:1.6%;
+      position: relative;
+      float:right;
+  }
+  .profile{
+      height: 90px !important;
+  }
+  .iti {
+    box-sizing: border-box;
+  
+    .iti__flag-container .dropdown-menu.country-dropdown {
+      display: none;
+    }
+  
+    .iti__flag-container.open .dropdown-menu.country-dropdown {
+      display: block;
+      inset: 100% auto auto 0px;
+      transform: translateY(0px);
+  
+      position: absolute;
+      z-index: 1000;
+      float: left;
+      min-width: 10rem;
+      margin: .125rem 0 0;
+      font-size: 1rem;
+      color: #212529;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border-radius: .25rem;
+    }
+  
+    .tooltip {
+      display: block;
+      pointer-events: none;
+      position: absolute;
+      z-index: 1070;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: start;
+      text-decoration: none;
+      text-shadow: none;
+      text-transform: none;
+      letter-spacing: normal;
+      word-break: normal;
+      word-spacing: normal;
+      white-space: normal;
+      line-break: auto;
+      font-size: .875rem;
+  
+      & .arrow {
+        position: absolute;
+        display: block;
+        width: .8rem;
+        height: .4rem;
+  
+        &:before {
+          position: absolute;
+          content: '';
+          border-color: transparent;
+          border-style: solid;
+        }
+      }
+      &.show {
+        opacity: 0.9;
+      }
+    }
+  
+    .bs-tooltip-top {
+      padding: .4rem 0;
+  
+      &.tooltip .arrow:before {
+        top: 0;
+        border-width: .4rem .4rem 0;
+        border-top-color: #000;
+      }
+  
+      & .arrow {
+        bottom: 0;
+      }
+    }
+  
+    .tooltip-inner {
+      max-width: 200px;
+      padding: .25rem .5rem;
+      color: #fff;
+      text-align: center;
+      background-color: #000;
+      border-radius: .25rem;
+    }
+  }
+.profile-btn{
+    height: 30px;
+}
+
+.navbar-brand{
+    // margin: auto;
+    padding-left: 20px;
+}
+  
+  

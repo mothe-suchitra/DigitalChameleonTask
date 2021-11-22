@@ -1,0 +1,181 @@
+
+ <nav class="navbar sticky-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"> 
+    <img src="../assets/digLogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    DigitalChameleon
+  </a>
+    <select #selLang (change)="translateLanguageTo(selLang.value)" style="margin-right: 6px">
+      <option *ngFor="let language of translate.getLangs()" [value]="language">{{ language }}</option>
+    </select>
+  
+</nav>
+  <form id="form_login">
+    <!-- <div class="col-12">
+      <div class="form-group">
+        <h6>{{'Title' | translate}}</h6>
+        <select #selLang class="form-select" (change)="translateLanguageTo(selLang.value)">
+          <option *ngFor="let language of translate.getLangs()" [value]="language">{{ language }}</option>
+        </select>
+      </div>
+    </div> -->
+  <div class="col-12">
+    <div class="form-group">
+      <!-- <label class="form-label">Email</label> -->
+      <h6>{{'USER_INFO.Email' | translate}}<span class="required">*</span></h6>
+      
+      <input type="text" class="form-control" placeholder="Email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+      [(ngModel)]="formDetails.email" name="email" id="email" (keyup)="validateEmail()"
+      >
+      <div >
+        <small class="text-danger" *ngIf="errors.email=='required'">{{'USER_INFO.Email_Required' | translate}}</small>
+        <small class="text-danger" *ngIf="errors.email=='invalid'">{{'USER_INFO.Invalid_Email' | translate}}</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Password' | translate}} <span class="required">*</span></h6>
+      <input type="{{!showPassword?'password':'text'}}" class="form-control" placeholder="{{'USER_INFO.Password' | translate}}"
+      [(ngModel)]="formDetails.password" maxlength="15" name="password" id="password" (keyup)="validatePassword()"
+      >
+      <i class="fa-icon fa fa-eye{{!showPassword? '' : '-slash'}}" (click)="showPassword = !showPassword"></i>
+      <small class='error-msg text-danger' id='password_error' *ngIf="errors.password">{{'USER_INFO.Password_Required' | translate}}</small>
+    </div>
+    <div class="pwd-bg" *ngIf="showValidations">
+      <ul class="pwd-err px-3 py-2">
+          <li *ngFor="let validation of passwordValidations">
+              <div class="row no-gutters align-items-baseline"><i
+                      class="fa fa-{{validation.isValid? 'check': 'times'}} pr-2 text-{{validation.isValid? 'success': 'danger'}} col-auto"></i>
+                  <small class="col">{{validation.message}}</small>
+              </div>
+          </li>
+      </ul>
+  </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Confirm_Password' | translate}}<span class="required">*</span></h6>
+      <input type="password" [(ngModel)]="formDetails.confirmPassword" id="confirmPassword" name="confirmPassword"
+       class="form-control" placeholder="{{'USER_INFO.Password' | translate}}" type="{{!showConfirmPassword?'password':'text'}}" (keyup)="confirmPasswordValidation()"
+      >
+      <i class="fa-icon fa fa-eye{{!showConfirmPassword? '' : '-slash'}}" (click)="showConfirmPassword = !showConfirmPassword"></i>
+      <div >
+        <small class="text-danger" *ngIf="errors.confirmPassword=='required'">{{'USER_INFO.Confirm_Password_Required' | translate}}</small>
+        <small class="text-danger" *ngIf="errors.confirmPassword=='invalid'">{{'USER_INFO.Confirm_Password_Match' | translate}}</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Mobile_Number' | translate}}<span class="required">*</span></h6>
+      <ngx-intl-tel-input [cssClass]="'custom col-12'" (keyup)="phoneNumberValidation()"
+      [enableAutoCountrySelect]="true"
+      [enablePlaceholder]="true"
+      [searchCountryFlag]="true"
+      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+      [selectFirstCountry]="false"
+      [selectedCountryISO]="CountryISO.India"
+      [maxLength]="15"
+      [phoneValidation]="true"
+      [separateDialCode]="separateDialCode"
+      name="phone"
+      [(ngModel)]="formDetails.phoneNumber">
+    </ngx-intl-tel-input>
+    <div >
+      <small class="text-danger" *ngIf="errors.phoneNumber=='required'">{{'USER_INFO.Phone_Number_Required' | translate}}</small>
+      <small class="text-danger" *ngIf="errors.phoneNumber=='invalid'">{{'USER_INFO.Phone_Number_Invalid' | translate}}</small>
+    </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Profile_Picture' | translate}}</h6>
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+      <img class="profile" *ngIf="!imgURL" src="../assets/unknown.jpg"/><br/>
+      <input class="profile-btn" #file type="file" accept='image/*' (change)="preview(file.files)" />
+
+      <!-- <a href="" (click)="chooseProfile()">Pick a file</a> -->
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Gender' | translate}} <span class="required">*</span></h6>
+      <div class="col-4">
+        <input type="radio" class="form-check-input " [(ngModel)]="formDetails.gender" id="Male" name="gender" value="Male">
+        <label class="form-text" for="Male">{{'USER_INFO.Male' | translate}}</label><br>
+        <input type="radio" class="form-check-input " id="Female" [(ngModel)]="formDetails.gender" name="gender" value="Female">
+        <label class="form-text" for="Female">{{'USER_INFO.Female' | translate}}</label><br>
+        <input type="radio" class="form-check-input " id="Others" name="gender" [(ngModel)]="formDetails.gender" value="Others">
+        <label class="form-text" for="Others">{{'USER_INFO.Others' | translate}}</label>
+    </div>
+    <div >
+      <small class="text-danger" *ngIf="errors.gender=='required'">{{'USER_INFO.Gender_Required' | translate}}</small>
+    </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Date_of_Birth' | translate}}<span class="required">*</span></h6>
+      <input placeholder="{{'USER_INFO.Date_Placeholder' | translate}}" 
+      angular-mydatepicker name="mydate" (click)="dp.toggleCalendar()" 
+      [(ngModel)]="formDetails.dateofBirth" [options]="myDpOptions" class="form-control"
+      #dp="angular-mydatepicker"/>
+      <div >  
+        <small class="text-danger" *ngIf="errors.dateofBirth=='required'">{{'USER_INFO.DOB_Required' | translate}}</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Address' | translate}}</h6>
+      <textarea class="form-control" id="address" name="address" rows="4" cols="30" style="min-width: 100%">
+        </textarea>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Hobbies' | translate}}</h6>
+      <div class="form-check" *ngFor="let hobby of hobbies" >
+        <input class="form-check-input " type="checkbox" id="{{hobby.hobby}}" name="{{hobby.hobby}}" value="{{hobby.id}}">
+        <label class="form-text" for="hobbies">{{hobby.hobby}}</label>
+      </div>
+  
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Annual_Income' | translate}}</h6>
+      <div class="d-flex">
+        <div class="col-3">
+      <select class="form-select" name="currency" id="currency" [(ngModel)]="currency" (change)="onCurrencyChange()">
+      <option *ngFor="let cur of currencyDetails" value="{{cur}}">{{cur}}</option>
+    </select>
+  </div>
+      <input type="text" class="form-control" placeholder="0.00" id="annual_income" (blur)="transformAmount($event)"
+      [(ngModel)]="formDetails.annual_income" name="annual_income" id="annual_income" (keydown)="numberOnly($event)"
+      >
+    </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <h6>{{'USER_INFO.Terms_Conditions' | translate}}<span class="required">*</span></h6>
+      <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="terms" name="terms" value="termsandconditions"
+      [(ngModel)]="formDetails.termsConditions">
+      <span class="form-text" >{{'USER_INFO.Confirm_Terms' | translate}}</span>
+    </div>
+      <div >  
+        <i class="fa fa-exclamation-circle mr-1" *ngIf="errors.termsConditions=='required'"></i>
+        <small class="text-danger" *ngIf="errors.termsConditions=='required'">{{'USER_INFO.TC_Required' | translate}}</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
+    </div>
+  </div>
+</form>
+
+<router-outlet></router-outlet>

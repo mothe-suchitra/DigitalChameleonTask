@@ -1,0 +1,31 @@
+{
+    "Title":"Select your Language",
+    "USER_INFO":{
+    "Email":"Email",
+    "Password":"Password",
+    "Confirm_Password":"Confirm Password",
+    "Mobile_Number":"Mobile Number",
+    "Profile_Picture":"Profile Picture",
+    "Gender":"Gender",
+    "Date_of_Birth":"Date of Birth",
+    "Address":"Address",
+    "Hobbies":"Hobbies",
+    "Annual_Income":"Annual Income",
+    "Terms_Conditions":"Terms and Conditions",
+    "Confirm_Terms" :"Please confirm that you agree to our terms and conditions",
+    "TC_Required":"Please check this box if you want to proceed",
+    "Email_Required" : "Email address is required",
+    "Invalid_Email": "Email address is invalid",
+    "Confirm_Password_Required" : "Confirm Password is required",
+    "Confirm_Password_Match": "Password must be same",
+    "DOB_Required": "Date of Birth is required",
+    "Phone_Number_Required":"Mobile Number is required",
+    "Phone_Number_Invalid":"Mobile Number is invalid",
+    "Male":"Male",
+    "Female":"Female",
+    "Others":"Others",
+    "Gender_Required":"Gender is Required",
+    "Date_Placeholder": "Click to select a date",
+    "Password_Required":"Password is required"
+}
+}
